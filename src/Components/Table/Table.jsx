@@ -3,7 +3,6 @@ import axios from 'axios';
 import { BarChart } from '@mui/x-charts/BarChart';
 import PieChartWithCenterLabel from '../BarChart/PieChartWithCenterLabel';
 
-
 function Table() {
   const [data, setData] = useState([])
   const [error, setError] = useState("")
@@ -13,7 +12,6 @@ function Table() {
   const [year, setYear] = useState("2022")
   const [tname, setTname] = useState("Chennai Super Kings")
   const [teamOptions, setTeamOptions] = useState([]) 
-
   useEffect(() => {
     const api = async () => {
       try {
@@ -26,6 +24,7 @@ function Table() {
     }
     api()
   }, [])
+
   useEffect(() => {
     const teamsForGender = data
       .filter(ipl => ipl.Gender.toLowerCase() === gender.toLowerCase() && ipl.IPLYear === Number(year)).map(ipl => ipl.TeamName)
@@ -38,13 +37,11 @@ function Table() {
     const filtered = data.filter(ipl=>
       ipl.Gender.toLowerCase() === gender.toLowerCase() &&
       ipl.IPLYear === Number(year)
-      // &&ipl.points===Number(point)
     )
     setFilteredData(filtered)
   }
 
   const displayAdd =()=>{
-
   }
 
   const teamNames = filteredData.map(ipl => ipl.TeamName)
