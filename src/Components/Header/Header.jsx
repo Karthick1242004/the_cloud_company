@@ -1,3 +1,5 @@
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +11,7 @@ function Header() {
             <img className='w-[40%]' src="https://tcc.quest/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftcc-logo.10d4643c.png&w=384&q=75" alt="TCC LOGO" />
         </div>
         <div className='mt-2'>
-            <Link className='bg-black text-white px-4 py-2 rounded-[5px] ' to='/'>Home</Link>
+        <FontAwesomeIcon icon={faGlobe} />
         </div>
       </div>
     </div>
