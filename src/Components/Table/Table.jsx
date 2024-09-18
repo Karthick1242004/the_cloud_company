@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { BarChart } from '@mui/x-charts/BarChart';
 import PieChartWithCenterLabel from '../BarChart/PieChartWithCenterLabel';
+import { Link } from 'react-router-dom';
 
 function Table() {
   const [data, setData] = useState([])
@@ -18,6 +19,7 @@ function Table() {
         const res = await axios.get("https://www.mockachino.com/5db99bd2-28c5-46/ipl/table")
         setData(res.data.points) 
         setFilteredData(res.data.points) 
+        console.log(res.data)
       } catch (error) {
         setError(error.message)
       }
@@ -138,9 +140,9 @@ function Table() {
         </thead>
         <tbody>
           {filteredData.map((ipl, index) => (
-            <tr key={index} className='w-[90%] font-light hover:bg-slate-100 gap-10'>
+            <tr key={index} className='w-[90%] font-light hover:bg-slate-100 gap-10 text-center'>
               <td><img src={ipl.TeamLogo} alt="Team Logo" width="50" /></td>
-              <td>{ipl.TeamName}</td>
+              <Link to='/Team'><td className='pt-[10px]'>{ipl.TeamName}</td></Link>
               <td>{ipl.Matches}</td>
               <td>{ipl.Wins}</td>
               <td>{ipl.Loss}</td>
